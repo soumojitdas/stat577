@@ -45,6 +45,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -224,7 +225,7 @@ Soumojit Das
 </div>
 </div>
 </section>
-<section id="a-philosophical-aside" class="slide level2">
+<section id="a-philosophical-aside" class="slide level2 scrollable">
 <h2>A Philosophical Aside</h2>
 <p>The framework <span class="math inline">\(Y = f(X) + \varepsilon\)</span> is powerful but not innocent.</p>
 <p><strong>Hidden assumptions:</strong></p>
@@ -253,7 +254,8 @@ Soumojit Das
 <h2>The Ill-Posed Nature of Learning</h2>
 <p>Given training data, <strong>infinitely many functions</strong> pass through the same points.</p>
 
-<img data-src="week01-foundations_files/figure-revealjs/ill-posedness-1.png" width="960" class="r-stretch"><div title="Occam's Razor">
+<img data-src="week01-foundations_files/figure-revealjs/ill-posedness-1.png" width="960" class="r-stretch"><div class="fragment">
+<div title="Occam's Razor">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -265,6 +267,7 @@ Soumojit Das
 <div class="callout-content">
 <p>Among all functions that fit the training data, <strong>prefer the simplest one</strong>.</p>
 <p>This isn’t just aesthetic preference — it’s a statistical principle. Complex functions that fit training data perfectly often fail on new data. A good learning algorithm chooses the <em>simplest</em> <span class="math inline">\(f\)</span> consistent with the evidence.</p>
+</div>
 </div>
 </div>
 </div>
@@ -287,6 +290,23 @@ Soumojit Das
 <li>Example: understanding drug effects, policy impacts</li>
 </ul>
 </div>
+<div class="fragment">
+<div title="The Conflict">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Conflict</strong></p>
+</div>
+<div class="callout-content">
+<p>These goals can conflict. The best predictive model might be an uninterpretable neural network. The most interpretable model might predict poorly. This tension runs through the entire field.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="supervised-vs-unsupervised-learning" class="slide level2">
 <h2>Supervised vs Unsupervised Learning</h2>
@@ -300,7 +320,7 @@ Soumojit Das
 <li><strong>Classification:</strong> <span class="math inline">\(Y\)</span> is categorical</li>
 </ul>
 <p>Examples: spam detection, house price prediction</p>
-</div><div class="column" style="width:50%;">
+</div><div class="column fragment" style="width:50%;">
 <p><strong>Unsupervised Learning</strong></p>
 <ul>
 <li>Have only <span class="math inline">\(X\)</span>, no response <span class="math inline">\(Y\)</span></li>
@@ -310,6 +330,23 @@ Soumojit Das
 </ul>
 <p>Examples: customer segmentation, gene expression analysis</p>
 </div></div>
+<div class="fragment">
+<div title="Scope">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Scope</strong></p>
+</div>
+<div class="callout-content">
+<p>Most of this course focuses on supervised learning. But the boundary is blurry — semi-supervised methods use both labeled and unlabeled data.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="no-free-lunch" class="slide level2">
 <h2>No Free Lunch</h2>
@@ -539,7 +576,7 @@ Soumojit Das
 <div class="cell">
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-7e6f60341c3f3ea62487" style="width:1152px;height:432px;"></div>
-<script type="application/json" data-for="htmlwidget-7e6f60341c3f3ea62487">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"y":[2.2570062756619564,1.8316282798646415,4.1501175518659199,3.3294882648807911,6.2867174904670975,5.2490894957396437,5.6105751690513994,3.9049228675336298,6.9970405826679034,5.1552576149922658,8.5447316997052933,6.7741909097061228,8.5877233203080099,8.957993216826944,8.7852203571517364,11.173862181910939,10.131822334579123,10.877301672504471,10.947113910678736,13.316330795822896],"text":["x:  1<br />y:  2.257006","x:  2<br />y:  1.831628","x:  3<br />y:  4.150118","x:  4<br />y:  3.329488","x:  5<br />y:  6.286717","x:  6<br />y:  5.249089","x:  7<br />y:  5.610575","x:  8<br />y:  3.904923","x:  9<br />y:  6.997041","x: 10<br />y:  5.155258","x: 11<br />y:  8.544732","x: 12<br />y:  6.774191","x: 13<br />y:  8.587723","x: 14<br />y:  8.957993","x: 15<br />y:  8.785220","x: 16<br />y: 11.173862","x: 17<br />y: 10.131822","x: 18<br />y: 10.877302","x: 19<br />y: 10.947114","x: 20<br />y: 13.316331"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(46,134,171,1)","opacity":0.69999999999999996,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,171,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21],"y":[2.2570062756619564,1.8316282798646415,4.1501175518659199,3.3294882648807911,6.2867174904670975,5.2490894957396437,5.6105751690513994,3.9049228675336298,6.9970405826679034,5.1552576149922658,8.5447316997052933,6.7741909097061228,8.5877233203080099,8.957993216826944,8.7852203571517364,11.173862181910939,10.131822334579123,10.877301672504471,10.947113910678736,13.316330795822896,50],"text":["x:  1<br />y:  2.257006","x:  2<br />y:  1.831628","x:  3<br />y:  4.150118","x:  4<br />y:  3.329488","x:  5<br />y:  6.286717","x:  6<br />y:  5.249089","x:  7<br />y:  5.610575","x:  8<br />y:  3.904923","x:  9<br />y:  6.997041","x: 10<br />y:  5.155258","x: 11<br />y:  8.544732","x: 12<br />y:  6.774191","x: 13<br />y:  8.587723","x: 14<br />y:  8.957993","x: 15<br />y:  8.785220","x: 16<br />y: 11.173862","x: 17<br />y: 10.131822","x: 18<br />y: 10.877302","x: 19<br />y: 10.947114","x: 20<br />y: 13.316331","x: 21<br />y: 50.000000"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(46,134,171,1)","opacity":0.69999999999999996,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,171,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null},{"x":[0.049999999999999933,20.949999999999999],"y":[7.1434066995959764,7.1434066995959764],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(214,40,40,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,22],"y":[9.1841968567580725,9.1841968567580725],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(214,40,40,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null},{"x":[0.049999999999999933,20.949999999999999],"y":[6.8856157461870131,6.8856157461870131],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(6,167,125,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,22],"y":[6.9970405826679034,6.9970405826679034],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(6,167,125,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":88.439463124394649,"r":10.62681610626816,"b":71.90812231908123,"l":54.196762141967625},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"title":{"text":"Mean vs Median: Robustness to Outliers","font":{"color":"rgba(0,0,0,1)","family":"","size":25.504358655043593},"x":0,"xref":"paper"},"xaxis":{"domain":[0,0.49069147263418744],"automargin":true,"type":"linear","autorange":false,"range":[0.049999999999999933,20.949999999999999],"tickmode":"array","ticktext":["5","10","15","20"],"tickvals":[5,10,15,20],"categoryorder":"array","categoryarray":["5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"annotations":[{"text":"Observation","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-31.880448318804483},{"text":"Value","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-31.880448318804486},{"text":"Without Outlier","x":0.24534573631709372,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":18.596928185969286},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"With One Outlier","x":0.75465426368290633,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":18.596928185969286},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"x":0.25,"y":-0.12,"text":"Mean: 7.1 | Median: 6.9","showarrow":false,"xref":"paper","yref":"paper","font":{"size":11}},{"x":0.75,"y":-0.12,"text":"Mean: 9.2 | Median: 7","showarrow":false,"xref":"paper","yref":"paper","font":{"size":11}}],"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.2573931540667287,13.890565921620809],"tickmode":"array","ticktext":["5","10"],"tickvals":[5,10],"categoryorder":"array","categoryarray":["5","10"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":0.49069147263418744,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":0.49069147263418744,"y0":0,"y1":35.599833955998349,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0.50930852736581256,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0.50930852736581256,"x1":1,"y0":0,"y1":35.599833955998349,"yanchor":1,"ysizemode":"pixel"}],"xaxis2":{"type":"linear","autorange":false,"range":[0,22],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,14.999999999999998,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.50930852736581256,1],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"y2","title":"","hoverformat":".2f"},"yaxis2":{"type":"linear","autorange":false,"range":[-0.57679030614212667,52.408418586006768],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0,1],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"x2","title":"","hoverformat":".2f"},"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.7487473156764497,"font":{"color":"rgba(0,0,0,1)","family":"","size":17.002905770029059}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"a678202d2dab":{"x":{},"y":{},"type":"scatter"},"a6782ded1328":{"yintercept":{}},"a67850e3311c":{"yintercept":{}}},"cur_data":"a678202d2dab","visdat":{"a678202d2dab":["function (y) ","x"],"a6782ded1328":["function (y) ","x"],"a67850e3311c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-7e6f60341c3f3ea62487">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"y":[2.2570062756619564,1.8316282798646415,4.1501175518659199,3.3294882648807911,6.2867174904670975,5.2490894957396437,5.6105751690513994,3.9049228675336298,6.9970405826679034,5.1552576149922658,8.5447316997052933,6.7741909097061228,8.5877233203080099,8.957993216826944,8.7852203571517364,11.173862181910939,10.131822334579123,10.877301672504471,10.947113910678736,13.316330795822896],"text":["x:  1<br />y:  2.257006","x:  2<br />y:  1.831628","x:  3<br />y:  4.150118","x:  4<br />y:  3.329488","x:  5<br />y:  6.286717","x:  6<br />y:  5.249089","x:  7<br />y:  5.610575","x:  8<br />y:  3.904923","x:  9<br />y:  6.997041","x: 10<br />y:  5.155258","x: 11<br />y:  8.544732","x: 12<br />y:  6.774191","x: 13<br />y:  8.587723","x: 14<br />y:  8.957993","x: 15<br />y:  8.785220","x: 16<br />y: 11.173862","x: 17<br />y: 10.131822","x: 18<br />y: 10.877302","x: 19<br />y: 10.947114","x: 20<br />y: 13.316331"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(46,134,171,1)","opacity":0.69999999999999996,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,171,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21],"y":[2.2570062756619564,1.8316282798646415,4.1501175518659199,3.3294882648807911,6.2867174904670975,5.2490894957396437,5.6105751690513994,3.9049228675336298,6.9970405826679034,5.1552576149922658,8.5447316997052933,6.7741909097061228,8.5877233203080099,8.957993216826944,8.7852203571517364,11.173862181910939,10.131822334579123,10.877301672504471,10.947113910678736,13.316330795822896,50],"text":["x:  1<br />y:  2.257006","x:  2<br />y:  1.831628","x:  3<br />y:  4.150118","x:  4<br />y:  3.329488","x:  5<br />y:  6.286717","x:  6<br />y:  5.249089","x:  7<br />y:  5.610575","x:  8<br />y:  3.904923","x:  9<br />y:  6.997041","x: 10<br />y:  5.155258","x: 11<br />y:  8.544732","x: 12<br />y:  6.774191","x: 13<br />y:  8.587723","x: 14<br />y:  8.957993","x: 15<br />y:  8.785220","x: 16<br />y: 11.173862","x: 17<br />y: 10.131822","x: 18<br />y: 10.877302","x: 19<br />y: 10.947114","x: 20<br />y: 13.316331","x: 21<br />y: 50.000000"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(46,134,171,1)","opacity":0.69999999999999996,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,171,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null},{"x":[0.049999999999999933,20.949999999999999],"y":[7.1434066995959764,7.1434066995959764],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(214,40,40,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,22],"y":[9.1841968567580725,9.1841968567580725],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(214,40,40,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null},{"x":[0.049999999999999933,20.949999999999999],"y":[6.8856157461870131,6.8856157461870131],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(6,167,125,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,22],"y":[6.9970405826679034,6.9970405826679034],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(6,167,125,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":88.439463124394649,"r":10.62681610626816,"b":71.90812231908123,"l":54.196762141967625},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"title":{"text":"Mean vs Median: Robustness to Outliers","font":{"color":"rgba(0,0,0,1)","family":"","size":25.504358655043593},"x":0,"xref":"paper"},"xaxis":{"domain":[0,0.49069147263418744],"automargin":true,"type":"linear","autorange":false,"range":[0.049999999999999933,20.949999999999999],"tickmode":"array","ticktext":["5","10","15","20"],"tickvals":[5,10,15,20],"categoryorder":"array","categoryarray":["5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"annotations":[{"text":"Observation","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-31.880448318804483},{"text":"Value","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-31.880448318804486},{"text":"Without Outlier","x":0.24534573631709372,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":18.596928185969286},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"With One Outlier","x":0.75465426368290633,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":18.596928185969286},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"x":0.25,"y":-0.12,"text":"Mean: 7.1 | Median: 6.9","showarrow":false,"xref":"paper","yref":"paper","font":{"size":11}},{"x":0.75,"y":-0.12,"text":"Mean: 9.2 | Median: 7","showarrow":false,"xref":"paper","yref":"paper","font":{"size":11}}],"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.2573931540667287,13.890565921620809],"tickmode":"array","ticktext":["5","10"],"tickvals":[5,10],"categoryorder":"array","categoryarray":["5","10"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":0.49069147263418744,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":0.49069147263418744,"y0":0,"y1":35.599833955998349,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0.50930852736581256,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0.50930852736581256,"x1":1,"y0":0,"y1":35.599833955998349,"yanchor":1,"ysizemode":"pixel"}],"xaxis2":{"type":"linear","autorange":false,"range":[0,22],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,14.999999999999998,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.50930852736581256,1],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"y2","title":"","hoverformat":".2f"},"yaxis2":{"type":"linear","autorange":false,"range":[-0.57679030614212667,52.408418586006768],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0,1],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"x2","title":"","hoverformat":".2f"},"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.7487473156764497,"font":{"color":"rgba(0,0,0,1)","family":"","size":17.002905770029059}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"8a00206b7caf":{"x":{},"y":{},"type":"scatter"},"8a0044686ce1":{"yintercept":{}},"8a0074f716e5":{"yintercept":{}}},"cur_data":"8a00206b7caf","visdat":{"8a00206b7caf":["function (y) ","x"],"8a0044686ce1":["function (y) ","x"],"8a0074f716e5":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div title="The Lesson">
@@ -580,7 +617,17 @@ Soumojit Das
 </div>
 </div>
 </div>
-<p><strong>Problem:</strong> We don’t know <span class="math inline">\(P(Y = g | X)\)</span> — must estimate it from data.</p>
+<div class="fragment">
+<p><em>Hmm, why not use it then?</em></p>
+</div>
+<div class="fragment">
+<p><strong>Problem:</strong></p>
+<ul>
+<li>We don’t know the <strong>true (population quantity of interest)</strong> <span class="math inline">\(P(Y = g | X)\)</span> — must estimate it from <strong>data (sample)</strong>.</li>
+<li>Every classification method we study — logistic regression, LDA, k-NN, random forests, neural networks — is just a different way of <em>estimating these posterior probabilities</em>.</li>
+<li>The Bayes Classifier is what we’d use if we had perfect knowledge of the data-generating process.</li>
+</ul>
+</div>
 </section>
 <section id="visualizing-the-bayes-classifier" class="slide level2">
 <h2>Visualizing the Bayes Classifier</h2>
@@ -605,7 +652,7 @@ Soumojit Das
 </div>
 </div>
 </section>
-<section id="example-k-nearest-neighbors" class="slide level2">
+<section id="example-k-nearest-neighbors" class="slide level2 scrollable">
 <h2>Example: k-Nearest Neighbors</h2>
 <p>A simple, intuitive approach to estimate <span class="math inline">\(f(x)\)</span>:</p>
 <ol type="1">
@@ -1267,7 +1314,7 @@ Soumojit Das
 </div>
 </div>
 </section>
-<section id="what-can-we-do" class="slide level2">
+<section id="what-can-we-do" class="slide level2 scrollable">
 <h2>What Can We Do?</h2>
 <p>The curse of dimensionality tells us we <strong>need assumptions</strong> to learn in high dimensions.</p>
 <p><strong>Common structural assumptions:</strong></p>
@@ -1321,7 +1368,7 @@ Soumojit Das
 <h2>Double Descent</h2>
 
 <img data-src="week01-foundations_files/figure-revealjs/double-descent-concept-1.png" width="1152" class="r-stretch"></section>
-<section id="what-is-double-descent" class="slide level2">
+<section id="what-is-double-descent" class="slide level2 scrollable">
 <h2>What Is Double Descent?</h2>
 <div title="The Phenomenon">
 <div class="callout callout-note callout-titled callout-style-default">
@@ -1346,7 +1393,7 @@ Soumojit Das
 </ol>
 <p>We’ll revisit this in Week 8 (Neural Networks).</p>
 </section>
-<section id="why-does-overparameterization-help" class="slide level2">
+<section id="why-does-overparameterization-help" class="slide level2 scrollable">
 <h2>Why Does Overparameterization Help?</h2>
 <p>Several (still debated!) explanations:</p>
 <ol type="1">
@@ -1375,7 +1422,7 @@ Soumojit Das
 <h1>Summary</h1>
 
 </section>
-<section id="key-takeaways" class="slide level2">
+<section id="key-takeaways" class="slide level2 scrollable">
 <h2>Key Takeaways</h2>
 <ol type="1">
 <li><p><strong>Feature vectors are the language of learning machines</strong> — any object becomes a point in high-dimensional space</p></li>
