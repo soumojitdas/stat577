@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="week01-foundations_files/libs/clipboard/clipboard.min.js"></script>
+<script src="week01-foundations_files/libs/quarto-html/tabby.min.js"></script>
+<script src="week01-foundations_files/libs/quarto-html/popper.min.js"></script>
+<script src="week01-foundations_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="week01-foundations_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="week01-foundations_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="week01-foundations_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Soumojit Das">
+  <title>Week 1: Foundations of Statistical Learning</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="week01-foundations_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="week01-foundations_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="week01-foundations_files/libs/revealjs/dist/theme/quarto-3b7c2e249ccf7b99b874191979013c35.css">
+  <link href="week01-foundations_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="week01-foundations_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="week01-foundations_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="week01-foundations_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link href="week01-foundations_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+  <script src="week01-foundations_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+  <script src="week01-foundations_files/libs/plotly-binding-4.11.0/plotly.js"></script>
+
+  <script src="week01-foundations_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+  <script src="week01-foundations_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+  <link href="week01-foundations_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+  <script src="week01-foundations_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+  <link href="week01-foundations_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+  <script src="week01-foundations_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Week 1: Foundations of Statistical Learning</h1>
+  <p class="subtitle">Stat 577 — Statistical Learning Theory</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Soumojit Das 
+</div>
+</div>
+</div>
+
+  <p class="date">Spring 2026</p>
+</section>
+<section>
+<section id="the-learning-problem" class="title-slide slide level1 center">
+<h1>The Learning Problem</h1>
+
+</section>
+<section id="what-is-statistical-learning" class="slide level2">
+<h2>What Is Statistical Learning?</h2>
+<p><strong>The core question:</strong> Given data, can we learn patterns that generalize to new observations?</p>
+<p>Consider the relationship between inputs <span class="math inline">\(X\)</span> and outputs <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[Y = f(X) + \varepsilon\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(f\)</span> is some fixed but <strong>unknown</strong> function</li>
+<li><span class="math inline">\(\varepsilon\)</span> is a random error term with <span class="math inline">\(E[\varepsilon] = 0\)</span></li>
+</ul>
+<p><strong>Statistical learning</strong> is the set of approaches for estimating <span class="math inline">\(f\)</span>.</p>
+</section>
+<section id="the-theory-behind-the-magic" class="slide level2">
+<h2>The Theory Behind the Magic</h2>
+<p>Before diving into formalism, consider what these methods have accomplished:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Cancer Diagnosis</strong></p>
+<ul>
+<li>20,000 gene expression features</li>
+<li>Only 30–200 patient samples</li>
+<li>Classify tumor types with &gt;95% accuracy</li>
+</ul>
+<p><strong>Face Recognition</strong></p>
+<ul>
+<li>MIT’s breakthrough (1990s)</li>
+<li>Thousands of pixel intensities</li>
+<li>Real-time identification</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Handwritten Digits</strong></p>
+<ul>
+<li>USPS mail sorting</li>
+<li>256 grayscale features (16×16 image)</li>
+<li>Human-level performance</li>
+</ul>
+<p><strong>Stock Prediction</strong></p>
+<ul>
+<li>Hundreds of economic indicators</li>
+<li>Predict next-period returns</li>
+<li>(With appropriate humility!)</li>
+</ul>
+</div></div>
+<div class="fragment">
+<div title="The Common Thread">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Common Thread</strong></p>
+</div>
+<div class="callout-content">
+<p>Each problem has the same structure: <strong>learn a function <span class="math inline">\(f\)</span> from examples</strong>. But what is the <em>theory</em> behind such learning algorithms?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-philosophical-aside" class="slide level2">
+<h2>A Philosophical Aside</h2>
+<p>The framework <span class="math inline">\(Y = f(X) + \varepsilon\)</span> is powerful but not innocent.</p>
+<p><strong>Hidden assumptions:</strong></p>
+<ol type="1">
+<li><strong>Additive noise:</strong> Real phenomena often have multiplicative or heteroskedastic errors</li>
+<li><strong><span class="math inline">\(f\)</span> exists:</strong> We’re defining <span class="math inline">\(f(x) = E[Y|X=x]\)</span> — this is a modeling choice, not a discovery</li>
+<li><strong><span class="math inline">\(\varepsilon\)</span> is “error”:</strong> Implies there’s a “true” signal to recover — but what if nature is irreducibly stochastic?</li>
+</ol>
+<div title="The Right Attitude">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Right Attitude</strong></p>
+</div>
+<div class="callout-content">
+<p>Treat <span class="math inline">\(Y = f(X) + \varepsilon\)</span> as a <em>useful fiction</em> — a framework for organizing our thinking, not a claim about reality.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-ill-posed-nature-of-learning" class="slide level2">
+<h2>The Ill-Posed Nature of Learning</h2>
+<p>Given training data, <strong>infinitely many functions</strong> pass through the same points.</p>
+
+<img data-src="week01-foundations_files/figure-revealjs/ill-posedness-1.png" width="960" class="r-stretch"><div title="Occam's Razor">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Occam’s Razor</strong></p>
+</div>
+<div class="callout-content">
+<p>Among all functions that fit the training data, <strong>prefer the simplest one</strong>.</p>
+<p>This isn’t just aesthetic preference — it’s a statistical principle. Complex functions that fit training data perfectly often fail on new data. A good learning algorithm chooses the <em>simplest</em> <span class="math inline">\(f\)</span> consistent with the evidence.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-estimate-f" class="slide level2">
+<h2>Why Estimate <span class="math inline">\(f\)</span>?</h2>
+<p>Two main goals with different implications:</p>
+<p><strong>Prediction:</strong> We want <span class="math inline">\(\hat{Y} = \hat{f}(X)\)</span> to be close to <span class="math inline">\(Y\)</span></p>
+<ul>
+<li>Don’t care about the form of <span class="math inline">\(\hat{f}\)</span></li>
+<li>Black box is fine if it predicts well</li>
+<li>Example: predicting stock prices, disease risk</li>
+</ul>
+<div class="fragment">
+<p><strong>Inference:</strong> We want to understand <em>how</em> <span class="math inline">\(X\)</span> affects <span class="math inline">\(Y\)</span></p>
+<ul>
+<li>Which predictors are associated with the response?</li>
+<li>What is the relationship (positive/negative, linear/nonlinear)?</li>
+<li>Example: understanding drug effects, policy impacts</li>
+</ul>
+</div>
+</section>
+<section id="supervised-vs-unsupervised-learning" class="slide level2">
+<h2>Supervised vs Unsupervised Learning</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Supervised Learning</strong></p>
+<ul>
+<li>Have both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> for training</li>
+<li>Learn <span class="math inline">\(f: X \to Y\)</span></li>
+<li><strong>Regression:</strong> <span class="math inline">\(Y\)</span> is continuous</li>
+<li><strong>Classification:</strong> <span class="math inline">\(Y\)</span> is categorical</li>
+</ul>
+<p>Examples: spam detection, house price prediction</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Unsupervised Learning</strong></p>
+<ul>
+<li>Have only <span class="math inline">\(X\)</span>, no response <span class="math inline">\(Y\)</span></li>
+<li>Find structure in the data</li>
+<li><strong>Clustering:</strong> group similar observations</li>
+<li><strong>Dimension reduction:</strong> find low-dimensional representation</li>
+</ul>
+<p>Examples: customer segmentation, gene expression analysis</p>
+</div></div>
+</section>
+<section id="no-free-lunch" class="slide level2">
+<h2>No Free Lunch</h2>
+<div title="A Fundamental Principle">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>A Fundamental Principle</strong></p>
+</div>
+<div class="callout-content">
+<blockquote>
+<p>“There is no free lunch in statistics: no one method dominates all others over all possible data sets.”</p>
+<p>— ISLR, Chapter 2</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<p><strong>What this means:</strong></p>
+<ul>
+<li>The “best” method depends on the specific problem</li>
+<li>Linear regression beats neural nets on some datasets; neural nets win on others</li>
+<li>Our job: understand when and why different methods work</li>
+</ul>
+<div class="fragment">
+<p>This is why we study <em>many</em> methods, not just one. The course is about building a toolkit and knowing which tool to reach for.</p>
+</div>
+</section>
+<section id="feature-vectors-the-language-of-learning-machines" class="slide level2">
+<h2>Feature Vectors: The Language of Learning Machines</h2>
+<p>Any object — a patient, an image, a stock — can be summarized as a string of numbers.</p>
+<p><strong>The key insight:</strong> Once we represent objects as vectors <span class="math inline">\(\mathbf{x} \in \mathbb{R}^p\)</span>, they become <strong>points in high-dimensional space</strong>.</p>
+<ul>
+<li>Classification becomes: <em>finding a surface that separates points</em></li>
+<li>Regression becomes: <em>finding a surface that passes through points</em></li>
+<li>Clustering becomes: <em>identifying clumps of nearby points</em></li>
+</ul>
+<div title="Geometrization of Data">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Geometrization of Data</strong></p>
+</div>
+<div class="callout-content">
+<p>Statistical learning is fundamentally <strong>geometric</strong>. Every method we study is a different way of carving up or smoothing over feature space.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="notation-setup" class="slide level2">
+<h2>Notation Setup</h2>
+<div title="Our Notation Convention (ISLR/ESL style)">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Our Notation Convention (ISLR/ESL style)</strong></p>
+</div>
+<div class="callout-content">
+<table class="caption-top">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(n\)</span></td>
+<td>Sample size (number of observations)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p\)</span></td>
+<td>Number of predictors/features</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{X} \in \mathbb{R}^{n \times p}\)</span></td>
+<td>Design matrix</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{y} \in \mathbb{R}^n\)</span></td>
+<td>Response vector</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{x}_i \in \mathbb{R}^p\)</span></td>
+<td>Feature vector for observation <span class="math inline">\(i\)</span> (row of <span class="math inline">\(\mathbf{X}\)</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\((x_i, y_i)\)</span></td>
+<td><span class="math inline">\(i\)</span>th observation pair</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\hat{f}\)</span></td>
+<td>Estimated function</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hat{y}\)</span></td>
+<td>Predicted value</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="loss-functions-optimal-predictors" class="title-slide slide level1 center">
+<h1>Loss Functions &amp; Optimal Predictors</h1>
+
+</section>
+<section id="measuring-prediction-error" class="slide level2">
+<h2>Measuring Prediction Error</h2>
+<p>To evaluate how well <span class="math inline">\(\hat{f}\)</span> approximates <span class="math inline">\(f\)</span>, we need a <strong>loss function</strong> <span class="math inline">\(L(y, \hat{y})\)</span>.</p>
+<p>Common loss functions:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Formula</th>
+<th>Optimal Predictor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Squared loss (<span class="math inline">\(L_2\)</span>)</td>
+<td><span class="math inline">\((y - \hat{y})^2\)</span></td>
+<td>Conditional mean</td>
+</tr>
+<tr class="even">
+<td>Absolute loss (<span class="math inline">\(L_1\)</span>)</td>
+<td><span class="math inline">\(|y - \hat{y}|\)</span></td>
+<td>Conditional median</td>
+</tr>
+<tr class="odd">
+<td>0-1 loss</td>
+<td><span class="math inline">\(\mathbf{1}(y \neq \hat{y})\)</span></td>
+<td>Bayes classifier</td>
+</tr>
+</tbody>
+</table>
+<p>The choice of loss function determines what “optimal” means.</p>
+</section>
+<section id="expected-prediction-error" class="slide level2">
+<h2>Expected Prediction Error</h2>
+<div title="Definition: Expected Prediction Error (EPE)">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition: Expected Prediction Error (EPE)</strong></p>
+</div>
+<div class="callout-content">
+<p>For a loss function <span class="math inline">\(L\)</span> and predictor <span class="math inline">\(\hat{f}\)</span>:</p>
+<p><span class="math display">\[\text{EPE}(\hat{f}) = E_{X,Y}[L(Y, \hat{f}(X))]\]</span></p>
+<p>This averages over both the distribution of <span class="math inline">\(X\)</span> and the conditional distribution of <span class="math inline">\(Y|X\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>For squared loss, we can decompose EPE pointwise:</p>
+<p><span class="math display">\[\text{EPE}(\hat{f}) = E_X\left[ E_{Y|X}[(Y - \hat{f}(X))^2 | X] \right]\]</span></p>
+</section>
+<section id="optimal-predictor-under-squared-loss" class="slide level2 scrollable">
+<h2>Optimal Predictor Under Squared Loss</h2>
+<p><strong>Theorem:</strong> The function minimizing EPE under squared loss is the <strong>conditional expectation</strong>:</p>
+<p><span class="math display">\[f^*(x) = E[Y | X = x]\]</span></p>
+<p><strong>Proof sketch:</strong> <span class="math display">\[E[(Y - c)^2 | X = x] = E[Y^2|X=x] - 2cE[Y|X=x] + c^2\]</span></p>
+<p>Take derivative w.r.t. <span class="math inline">\(c\)</span>, set to zero: <span class="math display">\[-2E[Y|X=x] + 2c = 0 \implies c = E[Y|X=x]\]</span></p>
+<div title="Intuition">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Intuition</strong></p>
+</div>
+<div class="callout-content">
+<p>The conditional mean is the “center of mass” of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=x\)</span> — it minimizes the average squared distance.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="optimal-predictor-under-absolute-loss" class="slide level2">
+<h2>Optimal Predictor Under Absolute Loss</h2>
+<p><strong>Theorem:</strong> The function minimizing EPE under absolute loss is the <strong>conditional median</strong>:</p>
+<p><span class="math display">\[f^*(x) = \text{median}(Y | X = x)\]</span></p>
+<div title="Why Median?">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Why Median?</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>The median minimizes the sum of absolute deviations</li>
+<li>More robust to outliers than the mean</li>
+<li>Useful when extreme values shouldn’t dominate</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-use-l_1-robustness-to-outliers" class="slide level2">
+<h2>Why Use <span class="math inline">\(L_1\)</span>? Robustness to Outliers</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-7e6f60341c3f3ea62487" style="width:1152px;height:432px;"></div>
+<script type="application/json" data-for="htmlwidget-7e6f60341c3f3ea62487">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"y":[2.2570062756619564,1.8316282798646415,4.1501175518659199,3.3294882648807911,6.2867174904670975,5.2490894957396437,5.6105751690513994,3.9049228675336298,6.9970405826679034,5.1552576149922658,8.5447316997052933,6.7741909097061228,8.5877233203080099,8.957993216826944,8.7852203571517364,11.173862181910939,10.131822334579123,10.877301672504471,10.947113910678736,13.316330795822896],"text":["x:  1<br />y:  2.257006","x:  2<br />y:  1.831628","x:  3<br />y:  4.150118","x:  4<br />y:  3.329488","x:  5<br />y:  6.286717","x:  6<br />y:  5.249089","x:  7<br />y:  5.610575","x:  8<br />y:  3.904923","x:  9<br />y:  6.997041","x: 10<br />y:  5.155258","x: 11<br />y:  8.544732","x: 12<br />y:  6.774191","x: 13<br />y:  8.587723","x: 14<br />y:  8.957993","x: 15<br />y:  8.785220","x: 16<br />y: 11.173862","x: 17<br />y: 10.131822","x: 18<br />y: 10.877302","x: 19<br />y: 10.947114","x: 20<br />y: 13.316331"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(46,134,171,1)","opacity":0.69999999999999996,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,171,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21],"y":[2.2570062756619564,1.8316282798646415,4.1501175518659199,3.3294882648807911,6.2867174904670975,5.2490894957396437,5.6105751690513994,3.9049228675336298,6.9970405826679034,5.1552576149922658,8.5447316997052933,6.7741909097061228,8.5877233203080099,8.957993216826944,8.7852203571517364,11.173862181910939,10.131822334579123,10.877301672504471,10.947113910678736,13.316330795822896,50],"text":["x:  1<br />y:  2.257006","x:  2<br />y:  1.831628","x:  3<br />y:  4.150118","x:  4<br />y:  3.329488","x:  5<br />y:  6.286717","x:  6<br />y:  5.249089","x:  7<br />y:  5.610575","x:  8<br />y:  3.904923","x:  9<br />y:  6.997041","x: 10<br />y:  5.155258","x: 11<br />y:  8.544732","x: 12<br />y:  6.774191","x: 13<br />y:  8.587723","x: 14<br />y:  8.957993","x: 15<br />y:  8.785220","x: 16<br />y: 11.173862","x: 17<br />y: 10.131822","x: 18<br />y: 10.877302","x: 19<br />y: 10.947114","x: 20<br />y: 13.316331","x: 21<br />y: 50.000000"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(46,134,171,1)","opacity":0.69999999999999996,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,171,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null},{"x":[0.049999999999999933,20.949999999999999],"y":[7.1434066995959764,7.1434066995959764],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(214,40,40,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,22],"y":[9.1841968567580725,9.1841968567580725],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(214,40,40,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null},{"x":[0.049999999999999933,20.949999999999999],"y":[6.8856157461870131,6.8856157461870131],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(6,167,125,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,22],"y":[6.9970405826679034,6.9970405826679034],"text":"","type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(6,167,125,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":88.439463124394649,"r":10.62681610626816,"b":71.90812231908123,"l":54.196762141967625},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"title":{"text":"Mean vs Median: Robustness to Outliers","font":{"color":"rgba(0,0,0,1)","family":"","size":25.504358655043593},"x":0,"xref":"paper"},"xaxis":{"domain":[0,0.49069147263418744],"automargin":true,"type":"linear","autorange":false,"range":[0.049999999999999933,20.949999999999999],"tickmode":"array","ticktext":["5","10","15","20"],"tickvals":[5,10,15,20],"categoryorder":"array","categoryarray":["5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"annotations":[{"text":"Observation","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-31.880448318804483},{"text":"Value","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-31.880448318804486},{"text":"Without Outlier","x":0.24534573631709372,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":18.596928185969286},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"With One Outlier","x":0.75465426368290633,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":18.596928185969286},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"x":0.25,"y":-0.12,"text":"Mean: 7.1 | Median: 6.9","showarrow":false,"xref":"paper","yref":"paper","font":{"size":11}},{"x":0.75,"y":-0.12,"text":"Mean: 9.2 | Median: 7","showarrow":false,"xref":"paper","yref":"paper","font":{"size":11}}],"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.2573931540667287,13.890565921620809],"tickmode":"array","ticktext":["5","10"],"tickvals":[5,10],"categoryorder":"array","categoryarray":["5","10"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":0.49069147263418744,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":0.49069147263418744,"y0":0,"y1":35.599833955998349,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0.50930852736581256,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"rgba(51,51,51,1)","width":0.96607419147892382,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0.50930852736581256,"x1":1,"y0":0,"y1":35.599833955998349,"yanchor":1,"ysizemode":"pixel"}],"xaxis2":{"type":"linear","autorange":false,"range":[0,22],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,14.999999999999998,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.50930852736581256,1],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"y2","title":"","hoverformat":".2f"},"yaxis2":{"type":"linear","autorange":false,"range":[-0.57679030614212667,52.408418586006768],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":5.3134080531340802,"tickwidth":0.96607419147892382,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":17.002905770029059},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0,1],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.96607419147892382,"zeroline":false,"anchor":"x2","title":"","hoverformat":".2f"},"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.7487473156764497,"font":{"color":"rgba(0,0,0,1)","family":"","size":17.002905770029059}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"aa2838f32514":{"x":{},"y":{},"type":"scatter"},"aa282e655a05":{"yintercept":{}},"aa282e5d61de":{"yintercept":{}}},"cur_data":"aa2838f32514","visdat":{"aa2838f32514":["function (y) ","x"],"aa282e655a05":["function (y) ","x"],"aa282e5d61de":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div title="The Lesson">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Lesson</strong></p>
+</div>
+<div class="callout-content">
+<p>One outlier shifts the mean by <strong>2</strong> but the median by only <strong>0.1</strong>.</p>
+<p>When outliers are expected (income data, sensor errors, etc.), <span class="math inline">\(L_1\)</span> loss gives more robust predictions.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-bayes-classifier-classification" class="slide level2">
+<h2>The Bayes Classifier (Classification)</h2>
+<p>For classification with 0-1 loss, the optimal classifier assigns each <span class="math inline">\(x\)</span> to the most probable class:</p>
+<p><span class="math display">\[f^*(x) = \arg\max_{g} P(Y = g | X = x)\]</span></p>
+<div title="Bayes Error Rate">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bayes Error Rate</strong></p>
+</div>
+<div class="callout-content">
+<p>The error rate of the Bayes classifier is:</p>
+<p><span class="math display">\[R^* = 1 - E_X[\max_g P(Y = g | X)]\]</span></p>
+<p>This is the <strong>irreducible error</strong> — no classifier can do better.</p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Problem:</strong> We don’t know <span class="math inline">\(P(Y = g | X)\)</span> — must estimate it from data.</p>
+</section>
+<section id="visualizing-the-bayes-classifier" class="slide level2">
+<h2>Visualizing the Bayes Classifier</h2>
+
+<img data-src="week01-foundations_files/figure-revealjs/bayes-classifier-viz-1.png" width="1344" class="r-stretch"><div title="Reading This Plot">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Reading This Plot</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Left:</strong> Points near the boundary are hard to classify — even the optimal classifier makes mistakes there</li>
+<li><strong>Right:</strong> The gradient shows uncertainty. Near the boundary, <span class="math inline">\(P(Y=1|X) \approx 0.5\)</span> — maximum uncertainty</li>
+<li><strong>Bayes error:</strong> The shaded overlap region where even perfect knowledge of <span class="math inline">\(P(Y|X)\)</span> leads to errors</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-k-nearest-neighbors" class="slide level2">
+<h2>Example: k-Nearest Neighbors</h2>
+<p>A simple, intuitive approach to estimate <span class="math inline">\(f(x)\)</span>:</p>
+<ol type="1">
+<li>Find the <span class="math inline">\(k\)</span> training points closest to <span class="math inline">\(x\)</span></li>
+<li>For regression: average their <span class="math inline">\(y\)</span> values</li>
+<li>For classification: majority vote</li>
+</ol>
+<p><span class="math display">\[\hat{f}(x) = \frac{1}{k} \sum_{x_i \in N_k(x)} y_i\]</span></p>
+<p>where <span class="math inline">\(N_k(x)\)</span> is the set of <span class="math inline">\(k\)</span> nearest neighbors of <span class="math inline">\(x\)</span>.</p>
+<div title="Key Question">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key Question</strong></p>
+</div>
+<div class="callout-content">
+<p>How should we choose <span class="math inline">\(k\)</span>? This is a <strong>model complexity</strong> parameter.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="k-nn-effect-of-k" class="slide level2">
+<h2>k-NN: Effect of <span class="math inline">\(k\)</span></h2>
+
+<img data-src="week01-foundations_files/figure-revealjs/knn-demo-1.png" width="1152" class="r-stretch"></section>
+<section id="k-nn-practical-considerations" class="slide level2">
+<h2>k-NN: Practical Considerations</h2>
+<div title="Boundary Effects">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Boundary Effects</strong></p>
+</div>
+<div class="callout-content">
+<p>At the edges of the data (<span class="math inline">\(x \approx 0\)</span> or <span class="math inline">\(x \approx 10\)</span>), k-NN effectively uses a “half-neighborhood” — all <span class="math inline">\(k\)</span> neighbors come from one direction. This causes:</p>
+<ul>
+<li>Increased bias at boundaries</li>
+<li>Predictions pulled toward the interior</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Other practical issues:</strong></p>
+<ul>
+<li><strong>Computational cost:</strong> Finding neighbors requires <span class="math inline">\(O(n)\)</span> comparisons per prediction (or <span class="math inline">\(O(\log n)\)</span> with KD-trees)</li>
+<li><strong>Feature scaling:</strong> Distances depend on units — always standardize!</li>
+<li><strong>Choosing <span class="math inline">\(k\)</span>:</strong> Use cross-validation (we’ll formalize this soon)</li>
+</ul>
+</section>
+<section id="two-philosophies-global-vs-local" class="slide level2">
+<h2>Two Philosophies: Global vs Local</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Linear Regression</strong></p>
+<p><em>“Globally linear”</em></p>
+<ul>
+<li>Assumes <span class="math inline">\(f(x) \approx \beta_0 + \boldsymbol{\beta}^T\mathbf{x}\)</span> everywhere</li>
+<li>One model fits all regions of the input space</li>
+<li>Very strong assumption — but stable estimates</li>
+<li>Few parameters to estimate</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>k-Nearest Neighbors</strong></p>
+<p><em>“Locally constant”</em></p>
+<ul>
+<li>Assumes <span class="math inline">\(f(x) \approx\)</span> constant in small neighborhoods</li>
+<li>Adapts to local structure</li>
+<li>Very weak assumption — but noisy estimates</li>
+<li>Effectively uses all data as “parameters”</li>
+</ul>
+</div></div>
+<div class="fragment">
+<div title="The Tradeoff Emerges">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Tradeoff Emerges</strong></p>
+</div>
+<div class="callout-content">
+<p>Strong assumptions (linear) → Lower variance, potentially higher bias</p>
+<p>Weak assumptions (k-NN) → Lower bias, higher variance</p>
+<p>This tension is the <strong>heart of statistical learning</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="where-this-course-lives" class="slide level2">
+<h2>Where This Course Lives</h2>
+<p>The methods we study occupy the <strong>middle ground</strong> between these extremes:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Structure</th>
+<th>Locality</th>
+<th>This Course</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Linear regression</td>
+<td>Global, rigid</td>
+<td>None</td>
+<td>Week 2</td>
+</tr>
+<tr class="even">
+<td>Ridge/Lasso</td>
+<td>Global, regularized</td>
+<td>None</td>
+<td>Week 3</td>
+</tr>
+<tr class="odd">
+<td>Splines, GAMs</td>
+<td>Semi-local, smooth</td>
+<td>Moderate</td>
+<td>Week 5</td>
+</tr>
+<tr class="even">
+<td>Trees, forests</td>
+<td>Adaptive partitions</td>
+<td>Local</td>
+<td>Week 6</td>
+</tr>
+<tr class="odd">
+<td>SVM</td>
+<td>Global (kernel-dependent)</td>
+<td>Varies</td>
+<td>Week 7</td>
+</tr>
+<tr class="even">
+<td>Neural networks</td>
+<td>Hierarchical</td>
+<td>Learned</td>
+<td>Weeks 8–12</td>
+</tr>
+<tr class="odd">
+<td>k-NN</td>
+<td>Local, unstructured</td>
+<td>High</td>
+<td>Week 1 (today)</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div title="The Course Arc">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Course Arc</strong></p>
+</div>
+<div class="callout-content">
+<p>We’ll build from strong assumptions (linear models) toward flexible methods (neural networks), always asking: <strong>what assumptions does this method make, and when do they help or hurt?</strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="bias-variance-decomposition" class="title-slide slide level1 center">
+<h1>Bias-Variance Decomposition</h1>
+
+</section>
+<section id="the-fundamental-tradeoff" class="slide level2">
+<h2>The Fundamental Tradeoff</h2>
+<p>We’ve seen that linear models make strong assumptions (low variance, potential bias) while k-NN makes weak assumptions (low bias, high variance).</p>
+<p><strong>But can we make this precise?</strong> What exactly do “bias” and “variance” mean, and how do they affect prediction error?</p>
+<div class="fragment">
+<p>Imagine we could repeatedly sample training sets and fit <span class="math inline">\(\hat{f}\)</span>.</p>
+<p>For a fixed test point <span class="math inline">\(x_0\)</span>, the expected prediction error has three components:</p>
+<p><span class="math display">\[E[(Y - \hat{f}(x_0))^2] = \underbrace{\sigma^2}_{\text{Irreducible}} + \underbrace{[\text{Bias}(\hat{f}(x_0))]^2}_{\text{Bias}^2} + \underbrace{\text{Var}(\hat{f}(x_0))}_{\text{Variance}}\]</span></p>
+</div>
+<div class="fragment">
+<div title="Key Insight">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key Insight</strong></p>
+</div>
+<div class="callout-content">
+<p>We cannot minimize bias and variance simultaneously — this is the <strong>bias-variance tradeoff</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivation-setting-up" class="slide level2 scrollable">
+<h2>Derivation: Setting Up</h2>
+<p>Let <span class="math inline">\(Y = f(x_0) + \varepsilon\)</span> where <span class="math inline">\(E[\varepsilon] = 0\)</span> and <span class="math inline">\(\text{Var}(\varepsilon) = \sigma^2\)</span>.</p>
+<p>The expected squared error at <span class="math inline">\(x_0\)</span> (expectation over training data and <span class="math inline">\(\varepsilon\)</span>):</p>
+<p><span class="math display">\[\text{Err}(x_0) = E[(Y - \hat{f}(x_0))^2]\]</span></p>
+<p>Write <span class="math inline">\(Y - \hat{f}(x_0) = (Y - f(x_0)) + (f(x_0) - \hat{f}(x_0))\)</span></p>
+<p><span class="math display">\[= \varepsilon + (f(x_0) - \hat{f}(x_0))\]</span></p>
+</section>
+<section id="derivation-expanding-the-square" class="slide level2 scrollable">
+<h2>Derivation: Expanding the Square</h2>
+<p><span class="math display">\[E[(Y - \hat{f}(x_0))^2] = E[(\varepsilon + f(x_0) - \hat{f}(x_0))^2]\]</span></p>
+<p>Expand: <span class="math display">\[= E[\varepsilon^2] + 2E[\varepsilon(f(x_0) - \hat{f}(x_0))] + E[(f(x_0) - \hat{f}(x_0))^2]\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon\)</span> is independent of <span class="math inline">\(\hat{f}\)</span> and has mean 0:</p>
+<p><span class="math display">\[= \sigma^2 + 0 + E[(f(x_0) - \hat{f}(x_0))^2]\]</span></p>
+</section>
+<section id="derivation-decomposing-the-second-term" class="slide level2 scrollable">
+<h2>Derivation: Decomposing the Second Term</h2>
+<p>Now decompose <span class="math inline">\(E[(f(x_0) - \hat{f}(x_0))^2]\)</span>.</p>
+<p>Add and subtract <span class="math inline">\(E[\hat{f}(x_0)]\)</span>:</p>
+<p><span class="math display">\[= E[(f(x_0) - E[\hat{f}(x_0)] + E[\hat{f}(x_0)] - \hat{f}(x_0))^2]\]</span></p>
+<p>Let <span class="math inline">\(a = f(x_0) - E[\hat{f}(x_0)]\)</span> (a constant) and <span class="math inline">\(b = E[\hat{f}(x_0)] - \hat{f}(x_0)\)</span> (random).</p>
+<p><span class="math display">\[= E[(a + b)^2] = a^2 + 2aE[b] + E[b^2]\]</span></p>
+</section>
+<section id="derivation-final-result" class="slide level2 scrollable">
+<h2>Derivation: Final Result</h2>
+<p>Note that <span class="math inline">\(E[b] = E[E[\hat{f}(x_0)] - \hat{f}(x_0)] = 0\)</span>.</p>
+<p>So: <span class="math display">\[E[(f(x_0) - \hat{f}(x_0))^2] = a^2 + E[b^2]\]</span></p>
+<p><span class="math display">\[= (f(x_0) - E[\hat{f}(x_0)])^2 + E[(E[\hat{f}(x_0)] - \hat{f}(x_0))^2]\]</span></p>
+<div title="Bias-Variance Decomposition">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bias-Variance Decomposition</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[E[(Y - \hat{f}(x_0))^2] = \sigma^2 + \underbrace{[f(x_0) - E[\hat{f}(x_0)]]^2}_{\text{Bias}^2(\hat{f}(x_0))} + \underbrace{\text{Var}(\hat{f}(x_0))}_{\text{Variance}}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-each-term-means" class="slide level2">
+<h2>What Each Term Means</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Irreducible Error <span class="math inline">\(\sigma^2\)</span></strong></p>
+<ul>
+<li>Noise in the data itself</li>
+<li>Cannot be reduced</li>
+<li>Sets a floor for prediction error</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Bias<span class="math inline">\(^2\)</span></strong></p>
+<ul>
+<li>Error from wrong model assumptions</li>
+<li>Simple models → high bias</li>
+<li>“Underfitting”</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Variance</strong></p>
+<ul>
+<li>Sensitivity to training data</li>
+<li>Complex models → high variance</li>
+<li>“Overfitting”</li>
+</ul>
+</div></div>
+<div title="The Tradeoff">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Tradeoff</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>More flexible</strong> models: lower bias, higher variance</li>
+<li><strong>Less flexible</strong> models: higher bias, lower variance</li>
+<li>Goal: find the sweet spot</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div title="But...">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>But…</strong></p>
+</div>
+<div class="callout-content">
+<p>This U-shaped picture is a <em>mental model</em>, not a theorem. Double descent (Week 8) shows the story is richer. The bias-variance decomposition is a framework for thinking, not a universal law.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-dartboard-analogy" class="slide level2">
+<h2>The Dartboard Analogy</h2>
+
+<img data-src="week01-foundations_files/figure-revealjs/dartboard-analogy-1.png" width="1344" class="r-stretch"><div title="The Analogy">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Analogy</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Bias</strong> = How far is your <em>average</em> throw from the bullseye? (Systematic error)</li>
+<li><strong>Variance</strong> = How spread out are your throws? (Consistency)</li>
+<li><strong>Goal</strong> = Low bias AND low variance (bottom right panel)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-u-shaped-test-error-curve" class="slide level2">
+<h2>The U-Shaped Test Error Curve</h2>
+
+<img data-src="week01-foundations_files/figure-revealjs/bias-variance-curves-1.png" width="960" class="r-stretch"></section>
+<section id="training-error-vs-test-error" class="slide level2">
+<h2>Training Error vs Test Error</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Training Error</strong></p>
+<ul>
+<li>Computed on data used to fit model</li>
+<li>Always decreases with complexity</li>
+<li>Optimistic estimate of true error</li>
+<li>Can reach zero with enough flexibility</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Test Error</strong></p>
+<ul>
+<li>Computed on new, unseen data</li>
+<li>U-shaped curve</li>
+<li>Minimum at optimal complexity</li>
+<li>This is what we actually care about!</li>
+</ul>
+</div></div>
+<div title="Key Lesson">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key Lesson</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Never</strong> use training error to select model complexity!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="polynomial-fitting-demo" class="slide level2">
+<h2>Polynomial Fitting Demo</h2>
+
+<img data-src="week01-foundations_files/figure-revealjs/polynomial-fitting-1.png" width="1152" class="r-stretch"></section></section>
+<section>
+<section id="curse-of-dimensionality" class="title-slide slide level1 center">
+<h1>Curse of Dimensionality</h1>
+
+</section>
+<section id="the-high-dimensional-challenge" class="slide level2">
+<h2>The High-Dimensional Challenge</h2>
+<p>As dimension <span class="math inline">\(p\)</span> increases, our intuition about space breaks down.</p>
+<p><strong>The problem:</strong> Local methods (like k-NN) assume we can find “nearby” points.</p>
+<p><strong>In high dimensions:</strong></p>
+<ul>
+<li>Data becomes sparse</li>
+<li>“Nearby” points aren’t so near</li>
+<li>Local neighborhoods become global</li>
+</ul>
+</section>
+<section id="this-isnt-hypothetical" class="slide level2">
+<h2>This Isn’t Hypothetical</h2>
+<p>Consider real applications we mentioned earlier:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Application</th>
+<th>Dimension <span class="math inline">\(p\)</span></th>
+<th>Typical Sample Size <span class="math inline">\(n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gene expression (cancer)</td>
+<td>5,000 – 20,000</td>
+<td>30 – 200</td>
+</tr>
+<tr class="even">
+<td>Face recognition</td>
+<td>10,000+ (pixels)</td>
+<td>100 – 1,000</td>
+</tr>
+<tr class="odd">
+<td>Text classification</td>
+<td>50,000+ (vocabulary)</td>
+<td>1,000 – 10,000</td>
+</tr>
+<tr class="even">
+<td>Financial indicators</td>
+<td>100 – 1,000</td>
+<td>250 (trading days/year)</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div title="The Uncomfortable Reality">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Uncomfortable Reality</strong></p>
+</div>
+<div class="callout-content">
+<p>In most modern applications, <strong><span class="math inline">\(p \gg n\)</span></strong> — we have far more features than observations.</p>
+<p>Classical statistics (designed for <span class="math inline">\(n \gg p\)</span>) doesn’t directly apply. This is where statistical learning theory becomes essential.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="edge-length-to-capture-r-fraction-of-data" class="slide level2 scrollable">
+<h2>Edge Length to Capture <span class="math inline">\(r\)</span> Fraction of Data</h2>
+<p>Consider data uniformly distributed in a <span class="math inline">\(p\)</span>-dimensional unit hypercube.</p>
+<p>To capture a fraction <span class="math inline">\(r\)</span> of the data in a hypercubic neighborhood centered at a point, we need edge length:</p>
+<p><span class="math display">\[e_p(r) = r^{1/p}\]</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 39%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension <span class="math inline">\(p\)</span></th>
+<th>Edge length for <span class="math inline">\(r = 0.01\)</span></th>
+<th>Edge length for <span class="math inline">\(r = 0.1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0.01</td>
+<td>0.10</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0.10</td>
+<td>0.32</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>0.63</td>
+<td>0.79</td>
+</tr>
+<tr class="even">
+<td>100</td>
+<td>0.955</td>
+<td>0.977</td>
+</tr>
+</tbody>
+</table>
+<div title="The Curse">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Curse</strong></p>
+</div>
+<div class="callout-content">
+<p>In high dimensions, even small neighborhoods span most of the data range!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-the-curse" class="slide level2">
+<h2>Visualizing the Curse</h2>
+
+<img data-src="week01-foundations_files/figure-revealjs/curse-dimensionality-1.png" width="960" class="r-stretch"></section>
+<section id="why-local-methods-struggle" class="slide level2">
+<h2>Why Local Methods Struggle</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>In low dimensions:</strong></p>
+<ul>
+<li>k nearest neighbors are genuinely local</li>
+<li>Can estimate <span class="math inline">\(f(x)\)</span> by averaging nearby points</li>
+<li>Works well for smooth functions</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>In high dimensions:</strong></p>
+<ul>
+<li>“Nearest” neighbors may be far away</li>
+<li>Neighborhoods become nearly as large as the whole space</li>
+<li>Effectively averaging over dissimilar points</li>
+</ul>
+</div></div>
+<p><strong>Sample size requirement:</strong> To maintain constant density of points, need <span class="math inline">\(n = O(c^p)\)</span> samples!</p>
+</section>
+<section id="how-bad-is-it-a-calculation" class="slide level2 scrollable">
+<h2>How Bad Is It? A Calculation</h2>
+<p>Suppose we want training points dense enough that the nearest neighbor is within 1% of each axis (linear density = 100).</p>
+<p><strong>Required sample size:</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dimension <span class="math inline">\(p\)</span></th>
+<th>Required <span class="math inline">\(n = 100^p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>10,000</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>10 billion</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td><span class="math inline">\(10^{20}\)</span> (more than atoms in a gram of matter)</td>
+</tr>
+</tbody>
+</table>
+<div title="The Fundamental Lesson">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Fundamental Lesson</strong></p>
+</div>
+<div class="callout-content">
+<p>In high dimensions, <strong>there is no substitute for assumptions</strong>.</p>
+<p>We cannot simply “collect more data” — the required sample size grows exponentially. Instead, we must impose structure: linearity, sparsity, smoothness, or low intrinsic dimension.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="distance-concentration" class="slide level2 scrollable">
+<h2>Distance Concentration</h2>
+<p>An even stranger phenomenon: in high dimensions, <strong>all pairwise distances become nearly equal</strong>.</p>
+<p>For <span class="math inline">\(n\)</span> points uniformly distributed in the unit hypercube:</p>
+<p><span class="math display">\[\frac{d_{\max} - d_{\min}}{d_{\min}} \to 0 \quad \text{as } p \to \infty\]</span></p>
+<div title="Implication">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Implication</strong></p>
+</div>
+<div class="callout-content">
+<p>If all points are equidistant, the concept of “nearest neighbor” becomes meaningless!</p>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="week01-foundations_files/figure-revealjs/distance-concentration-1.png" width="960" class="r-stretch"></section>
+<section id="volume-of-a-hypersphere" class="slide level2 scrollable">
+<h2>Volume of a Hypersphere</h2>
+<p>Another perspective: the volume of a unit ball shrinks rapidly.</p>
+<p>Volume of unit ball in <span class="math inline">\(p\)</span> dimensions:</p>
+<p><span class="math display">\[V_p(1) = \frac{\pi^{p/2}}{\Gamma(p/2 + 1)}\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dimension <span class="math inline">\(p\)</span></th>
+<th>Volume</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\(\pi \approx 3.14\)</span></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><span class="math inline">\(\frac{4\pi}{3} \approx 4.19\)</span></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td><span class="math inline">\(\approx 2.55\)</span></td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td><span class="math inline">\(\approx 0.026\)</span></td>
+</tr>
+<tr class="odd">
+<td>100</td>
+<td><span class="math inline">\(\approx 10^{-40}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Most of the “volume” is in the corners of the hypercube!</p>
+</section>
+<section id="concentration-of-measure" class="slide level2 scrollable">
+<h2>Concentration of Measure</h2>
+<p>Perhaps the most counterintuitive result: <strong>most of a high-dimensional sphere’s volume is near its surface</strong>.</p>
+<p>For a unit ball in <span class="math inline">\(p\)</span> dimensions, the fraction of volume within distance <span class="math inline">\(\epsilon\)</span> of the surface is:</p>
+<p><span class="math display">\[\text{Fraction in shell} = 1 - (1 - \epsilon)^p \approx 1 - e^{-p\epsilon} \text{ for large } p\]</span></p>
+
+<img data-src="week01-foundations_files/figure-revealjs/concentration-measure-1.png" width="960" class="r-stretch"><div title="What This Means">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>What This Means</strong></p>
+</div>
+<div class="callout-content">
+<p>In high dimensions:</p>
+<ul>
+<li>Almost all random points lie near the “edge” of any bounded region</li>
+<li>The “interior” is essentially empty</li>
+<li>Uniformly distributed points don’t fill space — they concentrate on the boundary</li>
+</ul>
+<p>This is why sampling in high dimensions feels fundamentally different.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-can-we-do" class="slide level2">
+<h2>What Can We Do?</h2>
+<p>The curse of dimensionality tells us we <strong>need assumptions</strong> to learn in high dimensions.</p>
+<p><strong>Common structural assumptions:</strong></p>
+<ol type="1">
+<li><strong>Smoothness:</strong> <span class="math inline">\(f\)</span> doesn’t change too rapidly</li>
+<li><strong>Sparsity:</strong> Only a few predictors matter</li>
+<li><strong>Low intrinsic dimension:</strong> Data lies on a lower-dimensional manifold</li>
+<li><strong>Linearity:</strong> <span class="math inline">\(f\)</span> is approximately linear</li>
+</ol>
+<div title="Key Insight">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key Insight</strong></p>
+</div>
+<div class="callout-content">
+<p>Statistical learning is about choosing the right structural assumptions for your problem.</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="preview-modern-phenomena" class="title-slide slide level1 center">
+<h1>Preview: Modern Phenomena</h1>
+
+</section>
+<section id="beyond-the-classical-view" class="slide level2">
+<h2>Beyond the Classical View</h2>
+<p>The bias-variance tradeoff suggests: <strong>don’t overfit!</strong></p>
+<p>Classical advice:</p>
+<ul>
+<li>Use fewer parameters than data points</li>
+<li>Regularize heavily</li>
+<li>Stop before fitting noise</li>
+</ul>
+<p>But modern deep learning:</p>
+<ul>
+<li>Uses <strong>millions</strong> of parameters</li>
+<li>Often fits training data perfectly</li>
+<li>Still generalizes well!</li>
+</ul>
+<div class="fragment">
+<p>What’s going on?</p>
+</div>
+</section>
+<section id="double-descent" class="slide level2">
+<h2>Double Descent</h2>
+
+<img data-src="week01-foundations_files/figure-revealjs/double-descent-concept-1.png" width="1152" class="r-stretch"></section>
+<section id="what-is-double-descent" class="slide level2">
+<h2>What Is Double Descent?</h2>
+<div title="The Phenomenon">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Phenomenon</strong></p>
+</div>
+<div class="callout-content">
+<p>Test error can <strong>decrease again</strong> after the interpolation threshold — when models have enough capacity to perfectly fit training data.</p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Three regimes:</strong></p>
+<ol type="1">
+<li><strong>Underparameterized:</strong> Classical bias-variance tradeoff applies</li>
+<li><strong>Interpolation threshold:</strong> Peak error (barely enough capacity)</li>
+<li><strong>Overparameterized:</strong> Error decreases again!</li>
+</ol>
+<p>We’ll revisit this in Week 8 (Neural Networks).</p>
+</section>
+<section id="why-does-overparameterization-help" class="slide level2">
+<h2>Why Does Overparameterization Help?</h2>
+<p>Several (still debated!) explanations:</p>
+<ol type="1">
+<li><p><strong>Implicit regularization:</strong> Gradient descent finds “simple” solutions even in overparameterized models</p></li>
+<li><p><strong>Multiple interpolating solutions:</strong> With many parameters, some that fit training data also generalize</p></li>
+<li><p><strong>Smoothness:</strong> Overparameterized models can be smoother than barely-fitting ones</p></li>
+</ol>
+<div title="Open Question">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Open Question</strong></p>
+</div>
+<div class="callout-content">
+<p>We don’t fully understand this yet! Active area of research.</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="summary" class="title-slide slide level1 center">
+<h1>Summary</h1>
+
+</section>
+<section id="key-takeaways" class="slide level2">
+<h2>Key Takeaways</h2>
+<ol type="1">
+<li><p><strong>Feature vectors are the language of learning machines</strong> — any object becomes a point in high-dimensional space</p></li>
+<li><p><strong>The learning problem is ill-posed</strong> — many functions fit the data; Occam’s razor says prefer the simplest</p></li>
+<li><p><strong>Loss functions</strong> define what “optimal” means:</p>
+<ul>
+<li>Squared loss → conditional mean</li>
+<li>Absolute loss → conditional median (robust to outliers)</li>
+<li>0-1 loss → Bayes classifier</li>
+</ul></li>
+<li><p><strong>Bias-variance decomposition:</strong> <span class="math display">\[\text{EPE} = \sigma^2 + \text{Bias}^2 + \text{Variance}\]</span></p></li>
+<li><p><strong>Curse of dimensionality:</strong> In high dimensions (<span class="math inline">\(p \gg n\)</span>), local methods fail — we <em>need</em> structural assumptions</p></li>
+<li><p><strong>Modern twist:</strong> Double descent shows the story is richer than the classical U-curve — stay curious!</p></li>
+</ol>
+</section>
+<section id="looking-ahead" class="slide level2">
+<h2>Looking Ahead</h2>
+<p><strong>Next week:</strong> Linear Models &amp; Least Squares</p>
+<ul>
+<li>The workhorse of statistical learning</li>
+<li>Matrix formulation and geometry</li>
+<li>Hat matrix and projection interpretation</li>
+<li>Gauss-Markov theorem (proof sketch)</li>
+<li>Distributional properties</li>
+</ul>
+<p><strong>Preparation:</strong></p>
+<ul>
+<li>Read: ISLR Chapter 3</li>
+<li>Optional: ESL 3.1-3.2</li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="week01-foundations_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="week01-foundations_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="week01-foundations_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="week01-foundations_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="week01-foundations_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="week01-foundations_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="week01-foundations_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="week01-foundations_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="week01-foundations_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="week01-foundations_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

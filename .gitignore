@@ -1,0 +1,31 @@
+# ========================================
+# IGNORE EVERYTHING BY DEFAULT
+# ========================================
+*
+
+# ========================================
+# ALLOW THESE FILES
+# ========================================
+!.gitignore
+!.nojekyll
+!README.md
+
+# ========================================
+# LECTURE SLIDES (HTML only, no source files)
+# ========================================
+!lecture-slides/
+
+# Week 01
+!lecture-slides/week01-foundations.html
+!lecture-slides/week01-foundations_files/
+!lecture-slides/week01-foundations_files/**
+
+# Week 02 
+# !lecture-slides/week02-linear-models.html
+# !lecture-slides/week02-linear-models_files/
+# !lecture-slides/week02-linear-models_files/**
+
+# Week 03 
+# !lecture-slides/week03-*.html
+# !lecture-slides/week03-*_files/
+# !lecture-slides/week03-*_files/**
