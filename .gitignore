@@ -20,12 +20,13 @@
 !lecture-slides/week01-foundations_files/
 !lecture-slides/week01-foundations_files/**
 
-# Week 02 
-# !lecture-slides/week02-linear-models.html
-# !lecture-slides/week02-linear-models_files/
-# !lecture-slides/week02-linear-models_files/**
+Week 02 
+!lecture-slides/week02-linear-models.html
+!lecture-slides/week02-linear-models_files/
+!lecture-slides/week02-linear-models_files/**
 
 # Week 03 
 # !lecture-slides/week03-*.html
 # !lecture-slides/week03-*_files/
 # !lecture-slides/week03-*_files/**
+.Rproj.user
