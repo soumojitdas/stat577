@@ -1134,10 +1134,12 @@ Soumojit Das
 </div>
 </div>
 <p><strong>Setup:</strong> Observe <span class="math inline">\(\mathbf{z} \sim N(\boldsymbol{\theta}, \sigma^2 \mathbf{I}_p)\)</span>. Want to estimate <span class="math inline">\(\boldsymbol{\theta}\)</span>.</p>
+<div class="fragment">
 <ul>
 <li>MLE: <span class="math inline">\(\hat{\boldsymbol{\theta}}_{MLE} = \mathbf{z}\)</span></li>
 <li>MSE: <span class="math inline">\(E[\|\hat{\boldsymbol{\theta}}_{MLE} - \boldsymbol{\theta}\|^2] = p\sigma^2\)</span></li>
 </ul>
+</div>
 <div class="fragment">
 <div title="The James-Stein Estimator">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1612,7 +1614,11 @@ Soumojit Das
 </div>
 </div>
 <div class="fragment">
-<p><strong>Key insight:</strong> - Directions with large <span class="math inline">\(d_j\)</span> (high variance): shrinkage factor <span class="math inline">\(\approx 1\)</span> (little shrinkage) - Directions with small <span class="math inline">\(d_j\)</span> (low variance): shrinkage factor <span class="math inline">\(\approx 0\)</span> (heavy shrinkage)</p>
+<p><strong>Key insight:</strong></p>
+<ul>
+<li>Directions with large <span class="math inline">\(d_j\)</span> (high variance): shrinkage factor <span class="math inline">\(\approx 1\)</span> (little shrinkage)</li>
+<li>Directions with small <span class="math inline">\(d_j\)</span> (low variance): shrinkage factor <span class="math inline">\(\approx 0\)</span> (heavy shrinkage)</li>
+</ul>
 <p>Ridge <strong>adaptively</strong> shrinks directions based on their variance in the data!</p>
 </div>
 </section>
