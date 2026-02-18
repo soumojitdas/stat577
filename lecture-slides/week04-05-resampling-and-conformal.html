@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="week04-resampling_files/libs/clipboard/clipboard.min.js"></script>
-<script src="week04-resampling_files/libs/quarto-html/tabby.min.js"></script>
-<script src="week04-resampling_files/libs/quarto-html/popper.min.js"></script>
-<script src="week04-resampling_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="week04-resampling_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="week04-resampling_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="week04-resampling_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="week04-05-resampling-and-conformal_files/libs/clipboard/clipboard.min.js"></script>
+<script src="week04-05-resampling-and-conformal_files/libs/quarto-html/tabby.min.js"></script>
+<script src="week04-05-resampling-and-conformal_files/libs/quarto-html/popper.min.js"></script>
+<script src="week04-05-resampling-and-conformal_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="week04-05-resampling-and-conformal_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="week04-05-resampling-and-conformal_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="week04-05-resampling-and-conformal_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Soumojit Das">
-  <title>Week 4: Resampling, Model Selection &amp; Conformal Prediction</title>
+  <title>Weeks 4–5: Resampling, Model Selection &amp; Conformal Prediction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="week04-resampling_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="week04-resampling_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="week04-05-resampling-and-conformal_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="week04-05-resampling-and-conformal_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -95,11 +95,11 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="week04-resampling_files/libs/revealjs/dist/theme/quarto-1eb24a96955d6b3d821eb9cb808841a9.css">
-  <link href="week04-resampling_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="week04-resampling_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="week04-resampling_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="week04-resampling_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="week04-05-resampling-and-conformal_files/libs/revealjs/dist/theme/quarto-1eb24a96955d6b3d821eb9cb808841a9.css">
+  <link href="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -194,7 +194,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 4: Resampling, Model Selection &amp; Conformal Prediction</h1>
+  <h1 class="title">Weeks 4–5: Resampling, Model Selection &amp; Conformal Prediction</h1>
   <p class="subtitle">Stat 577 — Statistical Learning Theory</p>
 
 <div class="quarto-title-authors">
@@ -443,7 +443,7 @@ Soumojit Das
 <section id="kl-divergence-visual-intuition" class="slide level2">
 <h2>KL Divergence: Visual Intuition</h2>
 
-<img data-src="week04-resampling_files/figure-revealjs/kl-divergence-visual-1.png" width="1152" class="r-stretch"></section>
+<img data-src="week04-05-resampling-and-conformal_files/figure-revealjs/kl-divergence-visual-1.png" width="1152" class="r-stretch"></section>
 <section id="forward-vs-reverse-kl-why-direction-matters" class="slide level2">
 <h2>Forward vs Reverse KL: Why Direction Matters</h2>
 <p>Since <span class="math inline">\(D_{\text{KL}}(p \,\|\, q) \neq D_{\text{KL}}(q \,\|\, p)\)</span>, the two directions have different <strong>behavior</strong> when we optimize over <span class="math inline">\(q\)</span>:</p>
@@ -830,7 +830,7 @@ Soumojit Das
 <section id="effective-df-for-ridge-visualization" class="slide level2">
 <h2>Effective df for Ridge: Visualization</h2>
 
-<img data-src="week04-resampling_files/figure-revealjs/effective-df-ridge-1.png" width="960" class="r-stretch"><div title="Recall from Week 3">
+<img data-src="week04-05-resampling-and-conformal_files/figure-revealjs/effective-df-ridge-1.png" width="960" class="r-stretch"><div title="Recall from Week 3">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1220,7 +1220,7 @@ Soumojit Das
 <span id="cb1-51"><a href=""></a>p_kfold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week04-resampling_files/figure-revealjs/kfold-from-scratch-1.png" width="960" class="r-stretch"></section>
+<img data-src="week04-05-resampling-and-conformal_files/figure-revealjs/kfold-from-scratch-1.png" width="960" class="r-stretch"></section>
 <section id="code-demo-k-fold-cv-with-glmnet" class="slide level2">
 <h2>Code Demo: k-Fold CV with <code>glmnet</code></h2>
 <div class="cell">
@@ -1261,7 +1261,7 @@ Soumojit Das
 <span id="cb2-35"><a href=""></a>p_cv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week04-resampling_files/figure-revealjs/cv-glmnet-demo-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="week04-05-resampling-and-conformal_files/figure-revealjs/cv-glmnet-demo-1.png" width="960" class="r-stretch"><div class="fragment">
 <div title="Reading the Plot">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -1395,7 +1395,7 @@ Soumojit Das
 <section id="bootstrap-demo-ridge-coefficient-uncertainty" class="slide level2">
 <h2>Bootstrap Demo: Ridge Coefficient Uncertainty</h2>
 
-<img data-src="week04-resampling_files/figure-revealjs/bootstrap-demo-1.png" width="1152" class="r-stretch"><div title="Notice the Shrinkage">
+<img data-src="week04-05-resampling-and-conformal_files/figure-revealjs/bootstrap-demo-1.png" width="1152" class="r-stretch"><div title="Notice the Shrinkage">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1528,7 +1528,7 @@ Soumojit Das
 <span id="cb3-57"><a href=""></a>p_ci</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week04-resampling_files/figure-revealjs/bootstrap-ci-demo-1.png" width="960" class="r-stretch"><div title="Observe">
+<img data-src="week04-05-resampling-and-conformal_files/figure-revealjs/bootstrap-ci-demo-1.png" width="960" class="r-stretch"><div title="Observe">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1876,7 +1876,7 @@ Soumojit Das
 <span id="cb4-64"><a href=""></a>p_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="week04-resampling_files/figure-revealjs/conformal-demo-1.png" width="1152" class="r-stretch"><div title="Notice the Difference">
+<img data-src="week04-05-resampling-and-conformal_files/figure-revealjs/conformal-demo-1.png" width="1152" class="r-stretch"><div title="Notice the Difference">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1987,30 +1987,317 @@ Soumojit Das
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="week-5-synthesis-resampling-vs-conformal" class="title-slide slide level1 center">
+<h1>Week 5 Synthesis: Resampling vs Conformal</h1>
+
 </section>
-<section id="looking-ahead" class="slide level2">
-<h2>Looking Ahead</h2>
-<p><strong>Next week:</strong> Moving Beyond Linearity — Splines, GAMs, Local Regression</p>
+<section id="the-same-question-two-philosophies" class="slide level2">
+<h2>The Same Question, Two Philosophies</h2>
+<p>We have spent this week building tools to <strong>honestly assess model performance</strong>. But resampling and conformal prediction answer this question in fundamentally different ways.</p>
+<div class="fragment">
+<div title="The Core Distinction">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Core Distinction</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Resampling</strong> (bootstrap, CV) asks: <em>“How variable are my estimates?”</em></p>
+<p><strong>Conformal prediction</strong> asks: <em>“Where will the next observation fall?”</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>This is not a difference in technique — it is a difference in <strong>what you are trying to guarantee</strong>.</p>
+<ul>
+<li>Resampling targets <strong>parameters and model performance</strong> (estimation)</li>
+<li>Conformal targets <strong>individual predictions</strong> (prediction)</li>
+</ul>
+</div>
+</section>
+<section id="what-each-framework-gives-you" class="slide level2">
+<h2>What Each Framework Gives You</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>What we covered:</strong></p>
+<p><strong>Resampling Methods</strong></p>
+<p><em>Bootstrap, Cross-Validation, Jackknife</em></p>
 <ul>
-<li>Optimism of training error</li>
-<li>KL divergence and AIC</li>
-<li>BIC from Bayesian model evidence</li>
-<li>Effective degrees of freedom</li>
+<li>Standard errors of <span class="math inline">\(\hat{\beta}\)</span>, <span class="math inline">\(\hat{\theta}\)</span></li>
+<li>Confidence intervals for parameters</li>
+<li>Estimates of test error (CV)</li>
+<li>Model selection (which <span class="math inline">\(\lambda\)</span>?)</li>
+<li>Bias correction (<span class="math inline">\(C_p\)</span>, AIC, GCV)</li>
+</ul>
+<p>These are statements about <strong>the model</strong> or <strong>the procedure</strong>.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Conformal Prediction</strong></p>
+<p><em>Split conformal, CQR, Jackknife+</em></p>
+<ul>
+<li>Prediction intervals for <span class="math inline">\(Y_{n+1}\)</span></li>
+<li>Prediction sets for classification</li>
+<li>Coverage guarantees at level <span class="math inline">\(1 - \alpha\)</span></li>
+<li>Uncertainty quantification per observation</li>
+</ul>
+<p>These are statements about <strong>the next data point</strong>.</p>
+</div></div>
+<div class="fragment">
+<div title="A Useful Litmus Test">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>A Useful Litmus Test</strong></p>
+</div>
+<div class="callout-content">
+<p>Ask yourself: <em>Am I trying to learn about the model, or promise something about a future observation?</em> Your answer determines which framework you need.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-guarantee-gap" class="slide level2">
+<h2>The Guarantee Gap</h2>
+<p>The deepest difference is in <strong>what each framework promises</strong> and <strong>what it assumes to promise it</strong>.</p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Resampling</strong></th>
+<th><strong>Conformal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Type of guarantee</strong></td>
+<td>Asymptotic (usually)</td>
+<td>Finite-sample</td>
+</tr>
+<tr class="even">
+<td><strong>Key assumption</strong></td>
+<td>Smooth <span class="math inline">\(F\)</span>, regularity conditions, or correct model</td>
+<td>Exchangeability</td>
+</tr>
+<tr class="odd">
+<td><strong>What can break it</strong></td>
+<td>Small <span class="math inline">\(n\)</span>, model misspecification, non-smooth functionals</td>
+<td>Distribution shift, non-exchangeability</td>
+</tr>
+<tr class="even">
+<td><strong>Coverage</strong></td>
+<td>Approximate: <span class="math inline">\(P(\theta \in \text{CI}) \approx 1 - \alpha\)</span></td>
+<td>Finite-sample valid: <span class="math inline">\(P(Y_{n+1} \in C) \geq 1 - \alpha\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><strong>Why this matters in practice:</strong></p>
+<ul>
+<li>A bootstrap 95% CI might have 88% actual coverage if <span class="math inline">\(n\)</span> is small or the statistic is non-smooth</li>
+<li>A conformal 95% interval has <span class="math inline">\(\geq 95\)</span>% coverage <strong>by construction</strong>, regardless of <span class="math inline">\(n\)</span> or model quality (though a bad model yields uninformatively wide intervals)</li>
+</ul>
+</div>
+<div class="fragment">
+<p>The price conformal pays: it says nothing about the model’s parameters. You get a prediction set, not understanding.</p>
+</div>
+</section>
+<section id="shared-machinery-different-goals" class="slide level2">
+<h2>Shared Machinery, Different Goals</h2>
+<p>Despite different philosophies, the mechanics often overlap:</p>
+<div class="fragment">
+<p><strong>Residuals are the common language.</strong></p>
+<ul>
+<li><strong>CV</strong> computes residuals <span class="math inline">\(y_i - \hat{f}^{(-i)}(x_i)\)</span> to estimate test error</li>
+<li><strong>Conformal</strong> computes residuals <span class="math inline">\(|y_i - \hat{f}_{\mathcal{I}_1}(x_i)|\)</span> on calibration data to set prediction intervals</li>
+<li><strong>Bootstrap</strong> resamples residuals to approximate sampling distributions</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Data splitting appears everywhere.</strong></p>
+<ul>
+<li><strong><span class="math inline">\(k\)</span>-fold CV</strong> splits data into <span class="math inline">\(k\)</span> folds for error estimation</li>
+<li><strong>Split conformal</strong> splits data into training and calibration sets</li>
+<li><strong>Out-of-bag (OOB)</strong> in bagging is a bootstrap-based split</li>
+</ul>
+</div>
+<div class="fragment">
+<div title="The Jackknife+ Bridge">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Jackknife+ Bridge</strong></p>
+</div>
+<div class="callout-content">
+<p>Barber et al.&nbsp;(2021) showed that LOO residuals — the bread and butter of cross-validation — can be repurposed to give <strong>distribution-free coverage guarantees</strong> (the jackknife+, with coverage at level <span class="math inline">\(1 - 2\alpha\)</span>). Same residuals, upgraded guarantee. This is the clearest example of resampling machinery serving conformal goals.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-conformal-cannot-do-and-resampling-can" class="slide level2">
+<h2>What Conformal Cannot Do (and Resampling Can)</h2>
+<p>Conformal prediction is powerful, but it has blind spots:</p>
+<div class="fragment">
+<p><strong>1. No parameter inference.</strong> You cannot use conformal to build a confidence interval for <span class="math inline">\(\beta_1\)</span> in a linear model. That requires the bootstrap or classical theory.</p>
+</div>
+<div class="fragment">
+<p><strong>2. No model comparison.</strong> Conformal tells you the width of your prediction interval, but it does not tell you which model to pick. You still need CV or AIC/BIC for that.</p>
+</div>
+<div class="fragment">
+<p><strong>3. No standard errors.</strong> If someone asks <em>“how stable is your estimate?”</em>, conformal has no answer. Bootstrap does.</p>
+</div>
+<div class="fragment">
+<p><strong>4. Marginal coverage only.</strong> The guarantee <span class="math inline">\(P(Y_{n+1} \in C(X_{n+1})) \geq 1 - \alpha\)</span> is <strong>marginal</strong> over the randomness of the entire dataset. It does not guarantee coverage <em>conditionally</em> on <span class="math inline">\(X_{n+1} = x\)</span>. Exact conditional coverage is provably impossible without further assumptions (Lei &amp; Wasserman, 2014), though approximate and group-conditional variants are an active research area.</p>
+</div>
+</section>
+<section id="what-resampling-cannot-do-and-conformal-can" class="slide level2">
+<h2>What Resampling Cannot Do (and Conformal Can)</h2>
+<div class="fragment">
+<p><strong>1. Finite-sample guarantees.</strong> Bootstrap CIs rely on <span class="math inline">\(n \to \infty\)</span>. Conformal coverage holds for <span class="math inline">\(n = 50\)</span> just as well as <span class="math inline">\(n = 50{,}000\)</span>.</p>
+</div>
+<div class="fragment">
+<p><strong>2. True model-agnosticism.</strong> Bootstrap intervals for a neural network require careful thought about what “resample” means in that context. Conformal treats <span class="math inline">\(\hat{f}\)</span> as a black box — any algorithm, any complexity.</p>
+</div>
+<div class="fragment">
+<p><strong>3. Robustness to model misspecification.</strong> If your model is wrong, bootstrap CIs can have poor coverage. Conformal coverage holds regardless — you just get wider intervals.</p>
+</div>
+<div class="fragment">
+<div title="A Subtle Point">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>A Subtle Point</strong></p>
+</div>
+<div class="callout-content">
+<p>The bootstrap <em>can</em> be applied to any statistic, but its theoretical guarantees degrade for non-smooth functionals (e.g., quantiles, max). Conformal makes no smoothness assumptions — its coverage guarantee is permutation-based (exchangeability of ranks), not analytic.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-decision-framework" class="slide level2">
+<h2>The Decision Framework</h2>
+
+<img data-src="week04-05-resampling-and-conformal_files/figure-revealjs/decision-framework-1.png" width="1344" class="r-stretch"><div class="fragment">
+<div title="In Practice: These Paths Connect">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>In Practice: These Paths Connect</strong></p>
+</div>
+<div class="callout-content">
+<p>You often use <strong>both</strong> sides sequentially. Use CV/AIC/BIC to <strong>choose your model</strong>, then wrap the chosen model in split conformal to get <strong>prediction intervals with coverage guarantees</strong>. The tree shows which tool answers which question — not that you must pick only one.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="fine-print-what-the-tree-doesnt-show" class="slide level2">
+<h2>Fine Print: What the Tree Doesn’t Show</h2>
+<p><strong>1. “Without data splitting” <span class="math inline">\(\neq\)</span> free lunch.</strong></p>
+<p>Jackknife+ avoids a calibration split, but it requires <span class="math inline">\(n\)</span> model refits (one per left-out point). For a linear model, that is cheap. For a deep network or MCMC-based model, it may be prohibitive. Split conformal requires only <strong>one</strong> refit — the price is a smaller effective training set.</p>
+<div class="fragment">
+<p><strong>2. Combining model selection with conformal requires care.</strong></p>
+<p>If you use CV to choose your model <strong>and</strong> the same data to calibrate conformal intervals, the calibration residuals are no longer exchangeable — they carry information about the selection step.</p>
+</div>
+<div class="fragment">
+<p>The clean fix: a <strong>three-way split</strong>.</p>
+<p><span class="math display">\[\text{Data} \;\longrightarrow\; \underbrace{\mathcal{I}_{\text{train}}}_{\text{fit candidates}} \;+\; \underbrace{\mathcal{I}_{\text{select}}}_{\text{CV for } \lambda} \;+\; \underbrace{\mathcal{I}_{\text{calibrate}}}_{\text{conformal scores}}\]</span></p>
+<p>The conformal guarantee applies to <span class="math inline">\(\mathcal{I}_{\text{calibrate}}\)</span> because it was never touched during training or selection.</p>
+</div>
+<div class="fragment">
+<div title="A Rule of Thumb">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>A Rule of Thumb</strong></p>
+</div>
+<div class="callout-content">
+<p>Any data used to <strong>make a decision</strong> about the model (which <span class="math inline">\(\lambda\)</span>, which features, which architecture) is <strong>not fresh</strong> for calibration. Keep calibration data completely untouched.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="closing-two-sides-of-the-same-coin" class="slide level2">
+<h2>Closing: Two Sides of the Same Coin</h2>
+<div title="The Week 4 Story, Complete">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Week 4 Story, Complete</strong></p>
+</div>
+<div class="callout-content">
+<p>We asked: <em>How do we honestly assess a model’s performance?</em></p>
+<p><strong>Information criteria</strong> (AIC, BIC) correct the optimism analytically.</p>
+<p><strong>Cross-validation</strong> corrects by holding out data.</p>
+<p><strong>Bootstrap</strong> quantifies uncertainty by resampling.</p>
+<p><strong>Conformal prediction</strong> guarantees coverage by exchangeability.</p>
+<p>These are not competing schools — they are <strong>complementary tools</strong> that answer different aspects of the same question. The best practitioners know when to reach for each one.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>And thanks to the paper presentations, we now know that the boundary between these worlds is <strong>porous</strong>: the jackknife+ (Barber et al., 2021) lives in both, using resampling mechanics to deliver conformal guarantees.</p>
+</div>
+</section>
+<section id="looking-ahead-classification" class="slide level2">
+<h2>Looking Ahead: Classification</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Weeks 4–5 recap:</strong></p>
+<ul>
+<li>Optimism, AIC/BIC from KL divergence</li>
 <li>Cross-validation (LOOCV, <span class="math inline">\(k\)</span>-fold, GCV)</li>
 <li>Bootstrap for uncertainty</li>
-<li>Conformal prediction</li>
+<li>Conformal prediction with coverage guarantees</li>
+<li>Paper presentations: CQR, Jackknife+, general conformal framework</li>
+<li>Synthesis: resampling vs conformal paradigms</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<p><strong>Coming up:</strong></p>
+<p><strong>Coming up: Classification</strong></p>
 <ul>
-<li>Polynomial regression revisited</li>
-<li>Regression splines and knot placement</li>
-<li>Smoothing splines</li>
-<li>Generalized Additive Models (GAMs)</li>
-<li>Local regression and kernel smoothing</li>
+<li>Bayes classifier and Bayes error rate</li>
+<li>Logistic regression (discriminative)</li>
+<li>LDA and QDA (generative)</li>
+<li>Decision boundaries</li>
+<li>Generative vs discriminative: when does each win?</li>
 </ul>
 </div></div>
 <div class="fragment">
@@ -2024,7 +2311,7 @@ Soumojit Das
 <p><strong>Preparation</strong></p>
 </div>
 <div class="callout-content">
-<p>Read: ISLR Chapter 7 (Moving Beyond Linearity), ESL 5.1–5.4 (Basis Expansions)</p>
+<p>Read: ISLR Chapter 4 (Classification), ESL 4.1–4.4 (Linear Methods for Classification)</p>
 </div>
 </div>
 </div>
@@ -2040,19 +2327,19 @@ Soumojit Das
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="week04-resampling_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="week04-resampling_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="week04-resampling_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="week04-resampling_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="week04-resampling_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="week04-resampling_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="week04-resampling_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="week04-resampling_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="week04-resampling_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="week04-resampling_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="week04-05-resampling-and-conformal_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
