@@ -10,6 +10,7 @@ Lecture slides for STAT 577, Spring 2026.
 | 2 | Linear Models | [View](https://soumojitdas.github.io/stat577/lecture-slides/week02-linear-models.html) |
 | 3 | Regularization | [View](https://soumojitdas.github.io/stat577/lecture-slides/week03-regularization.html) |
 | 4–5 | Resampling, Model Selection & Conformal Prediction | [View](https://soumojitdas.github.io/stat577/lecture-slides/week04-05-resampling-and-conformal.html) |
+| 6 | Classification | [View](https://soumojitdas.github.io/stat577/lecture-slides/week06-classification.html) |
 
 ## Instructor
 
