@@ -1174,39 +1174,6 @@ Soumojit Das
 </tbody>
 </table>
 </section>
-<section id="bias-variance-of-decision-boundaries" class="slide level2 nostretch">
-<h2>Bias-Variance of Decision Boundaries</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="week06-classification_files/figure-revealjs/bias-variance-boundaries-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>LDA</strong> (left): Boundaries are tightly clustered but <strong>systematically offset</strong> from the true Bayes boundary. Low variance, high bias — it cannot capture the quadratic truth.</p>
-<p><strong>QDA</strong> (right): Boundaries scatter widely but center on the truth. High variance, low bias — the right model, but harder to estimate.</p>
-<p><strong>Logistic</strong> (center): A compromise — more stable than QDA, less biased than LDA.</p>
-<div class="fragment">
-<div title="No Method Dominates">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>No Method Dominates</strong></p>
-</div>
-<div class="callout-content">
-<p>This is a recurring theme in statistical learning — the best method depends on the <strong>unknown</strong> data-generating process. The bias-variance tradeoff from Week 1 is always operating.</p>
-<p>With enough data and correct assumptions, the generative approach wins. With misspecified assumptions or limited domain knowledge, the discriminative approach is safer.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="a-practical-pathology-complete-separation" class="slide level2">
 <h2>A Practical Pathology: Complete Separation</h2>
 <p>Before we move to regularized models, one important warning about logistic regression.</p>
