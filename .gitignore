@@ -39,4 +39,9 @@ Week 02
 !lecture-slides/week06-*.html
 !lecture-slides/week06-*_files/
 !lecture-slides/week06-*_files/**
+
+# Week 07-08
+!lecture-slides/week07-08-*.html
+!lecture-slides/week07-08-*_files/
+!lecture-slides/week07-08-*_files/**
 .Rproj.user
