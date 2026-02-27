@@ -409,7 +409,19 @@ Soumojit Das
 <section id="trees-vs-linear-models-different-geometry" class="slide level2">
 <h2>Trees vs Linear Models: Different Geometry</h2>
 
-<img data-src="week07-08-trees-and-ensembles_files/figure-revealjs/tree-vs-linear-1.png" width="1344" class="r-stretch"><p>Trees make <strong>axis-aligned</strong> splits. When the true boundary is linear/smooth, trees must approximate it with a staircase. When the boundary is rectangular, trees capture it exactly.</p>
+<img data-src="week07-08-trees-and-ensembles_files/figure-revealjs/tree-vs-linear-1.png" style="width:100.0%" class="r-stretch"></section>
+<section id="trees-vs-linear-models-takeaway" class="slide level2">
+<h2>Trees vs Linear Models: Takeaway</h2>
+<p>Both panels show <strong>the same two classifiers</strong> — a tree (shaded regions) and logistic regression (dashed line) — fit to data from <strong>different DGPs</strong>.</p>
+<div class="fragment">
+<ul>
+<li><strong>DGP 1</strong> (left): <span class="math inline">\(P(Y{=}A \mid \mathbf{x}) = \sigma(0.8x_1 + 1.2x_2)\)</span> — a linear boundary.</li>
+<li><strong>DGP 2</strong> (right): <span class="math inline">\(P(Y{=}A \mid \mathbf{x}) = 0.9\)</span> inside a rectangle, <span class="math inline">\(0.1\)</span> outside — an axis-aligned boundary.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>In practice we never know the DGP. But this illustrates <strong>why no single method dominates</strong>: the geometry of the model must match the geometry of the truth. Trees make axis-aligned splits; linear models make hyperplane cuts. Neither is universally better.</p>
+</div>
 </section>
 <section id="the-punchline-of-block-1-instability" class="slide level2">
 <h2>The Punchline of Block 1: Instability</h2>
