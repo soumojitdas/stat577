@@ -13,6 +13,12 @@ Lecture slides for STAT 577, Spring 2026.
 | 6 | Classification | [View](https://soumojitdas.github.io/stat577/lecture-slides/week06-classification.html) |
 | 7–8 | Trees & Ensembles | [View](https://soumojitdas.github.io/stat577/lecture-slides/week07-08-trees-and-ensembles.html) |
 
+## Supplementary
+
+| Topic | Link |
+|-------|------|
+| Neural Network Pipeline Diagram | [View](https://soumojitdas.github.io/stat577/lecture-slides/nn-pipeline-diagram.html) |
+
 ## Instructor
 
 Soumojit Das
