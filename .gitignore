@@ -44,4 +44,7 @@ Week 02
 !lecture-slides/week07-08-*.html
 !lecture-slides/week07-08-*_files/
 !lecture-slides/week07-08-*_files/**
+
+# Week 09 supplementary
+!lecture-slides/nn-pipeline-diagram.html
 .Rproj.user
