@@ -12,6 +12,7 @@ Lecture slides for STAT 577, Spring 2026.
 | 4–5 | Resampling, Model Selection & Conformal Prediction | [View](https://soumojitdas.github.io/stat577/lecture-slides/week04-05-resampling-and-conformal.html) |
 | 6 | Classification | [View](https://soumojitdas.github.io/stat577/lecture-slides/week06-classification.html) |
 | 7–8 | Trees & Ensembles | [View](https://soumojitdas.github.io/stat577/lecture-slides/week07-08-trees-and-ensembles.html) |
+| 9A | Neural Networks: Intuition | [View](https://soumojitdas.github.io/stat577/lecture-slides/week09a-nn-intuition.html) |
 
 ## Supplementary
 
