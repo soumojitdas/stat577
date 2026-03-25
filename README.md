@@ -13,6 +13,7 @@ Lecture slides for STAT 577, Spring 2026.
 | 6 | Classification | [View](https://soumojitdas.github.io/stat577/lecture-slides/week06-classification.html) |
 | 7–8 | Trees & Ensembles | [View](https://soumojitdas.github.io/stat577/lecture-slides/week07-08-trees-and-ensembles.html) |
 | 9A | Neural Networks: Intuition | [View](https://soumojitdas.github.io/stat577/lecture-slides/week09a-nn-intuition.html) |
+| 11 | Neural Networks: Foundations | [View](https://soumojitdas.github.io/stat577/lecture-slides/week11-neural-networks.html) |
 
 ## Supplementary
 

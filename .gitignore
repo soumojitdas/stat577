@@ -50,6 +50,11 @@ Week 02
 !lecture-slides/week09a-*_files/
 !lecture-slides/week09a-*_files/**
 
+# Week 11
+!lecture-slides/week11-*.html
+!lecture-slides/week11-*_files/
+!lecture-slides/week11-*_files/**
+
 # Week 09 supplementary
 !lecture-slides/nn-pipeline-diagram.html
 .Rproj.user
