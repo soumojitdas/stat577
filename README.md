@@ -22,6 +22,10 @@ Lecture slides for STAT 577, Spring 2026.
 | Neural Network Pipeline Diagram | [View](https://soumojitdas.github.io/stat577/lecture-slides/nn-pipeline-diagram.html) |
 | Neural Network Backprop Walkthrough | [View](https://soumojitdas.github.io/stat577/lecture-slides/nn-backprop-walkthrough.html) |
 
+## Presentation Assignments
+
+[View](https://soumojitdas.github.io/stat577/presentation-assignments.html)
+
 ## Instructor
 
 Soumojit Das
