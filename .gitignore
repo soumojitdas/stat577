@@ -55,6 +55,11 @@ Week 02
 !lecture-slides/week11-*_files/
 !lecture-slides/week11-*_files/**
 
+# Week 12
+!lecture-slides/week12-*.html
+!lecture-slides/week12-*_files/
+!lecture-slides/week12-*_files/**
+
 # Supplementary
 !lecture-slides/nn-pipeline-diagram.html
 !lecture-slides/nn-backprop-walkthrough.html
