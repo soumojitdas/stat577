@@ -14,6 +14,7 @@ Lecture slides for STAT 577, Spring 2026.
 | 7–8 | Trees & Ensembles | [View](https://soumojitdas.github.io/stat577/lecture-slides/week07-08-trees-and-ensembles.html) |
 | 9A | Neural Networks: Intuition | [View](https://soumojitdas.github.io/stat577/lecture-slides/week09a-nn-intuition.html) |
 | 11 | Neural Networks: Foundations | [View](https://soumojitdas.github.io/stat577/lecture-slides/week11-neural-networks.html) |
+| 12 | Modern Deep Learning | [View](https://soumojitdas.github.io/stat577/lecture-slides/week12-modern-deep-learning.html#/title-slide) |
 
 ## Supplementary
 
